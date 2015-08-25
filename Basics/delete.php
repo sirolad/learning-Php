@@ -6,7 +6,7 @@
  * Time: 1:21 PM
  */
 
-echo "<h3>Choose an Id To Edit:</h3>";
+echo "<h3>Choose an Id To Delete:</h3>";
 $server = "localhost";
 $db_user = "root";
 $db_pass = "root";
@@ -30,7 +30,7 @@ while($row = mysql_fetch_array($result)){
     $email = $row['email'];
     $password = $row['password'];
 
-    echo "<tr><td align='center'><a href='edit.php?ids=$id&names=$name&emails=$email&passwords=$password'>$id</a></td>
+    echo "<tr><td align='center'><a href='delete1.php?ids=$id&names=$name&emails=$email&passwords=$password'>$id</a></td>
 <td>$name</td><td>$email</td><td>$password</td></tr>";
 }
 
@@ -38,10 +38,4 @@ echo "</table>";
 
 mysql_close;
 
-
 include("links.php");
-
-
-
-
-

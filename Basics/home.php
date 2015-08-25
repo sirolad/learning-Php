@@ -13,6 +13,7 @@
 </head>
 <body>
     <h1><center>Welcome to Andela !!!</center></h1>
+    <hr>
 
     <p>
         <h3>
