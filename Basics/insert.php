@@ -19,12 +19,12 @@ $cpassword = $_POST['cpassword'];
 if ($name && $email && $password && $cpassword) {
     if (strlen($password > 3)) {
         if ($password == $cpassword) {
-            mysql_connect($server, $db_user, $db_pass) or die("Could not connect to server!");
-            mysql_select_db($db_name) or die("Could not connect to database!");
-            $username = mysql_query("SELECT name FROM users WHERE name='$name'");
-            $count = mysql_num_rows($username);
-            $remail = mysql_query("SELECT email FROM users WHERE email='$email'");
-            $checkmail = mysql_num_rows($remail);
+            mysqli_connect($server, $db_user, $db_pass) or die("Could not connect to server!");
+            mysqli_select_db($db_name) or die("Could not connect to database!");
+            $username = mysqlii_query("SELECT name FROM users WHERE name='$name'");
+            $count = mysqli_num_rows($username);
+            $remail = mysqli_query("SELECT email FROM users WHERE email='$email'");
+            $checkmail = mysqli_num_rows($remail);
 
             if ($checkmail != 0) {
                 echo "Email is not Available!";
@@ -32,9 +32,9 @@ if ($name && $email && $password && $cpassword) {
                 if ($count != 0) {
                     echo "This User has already been registerd!";
                 } else {
-                    mysql_query("INSERT INTO users(name,email,password) VALUES ('$name','$email','$password')");
+                    mysqli_query("INSERT INTO users(name,email,password) VALUES ('$name','$email','$password')");
 
-                    //$registered = mysql_affected_rows();
+                    //$registered = mysqli_affected_rows();
 
                     echo "Successfully Registered";
                 }
@@ -49,6 +49,6 @@ if ($name && $email && $password && $cpassword) {
     echo "You have to complete the form!";
 }
 
-mysql_close();
+mysqli_close();
 
 include("links.php");

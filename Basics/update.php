@@ -12,10 +12,10 @@ $db_user = "root";
 $db_pass = "root";
 $db_name = "testsite";
 
-mysql_connect($server, $db_user, $db_pass) or die("Could not connect to server!");
-mysql_select_db($db_name) or die ("Could not connect to database!");
+mysqli_connect($server, $db_user, $db_pass) or die("Could not connect to server!");
+mysqli_select_db($db_name) or die("Could not connect to database!");
 
-$result = mysql_query("SELECT * FROM users");
+$result = mysqli_query("SELECT * FROM users");
 
 echo "<table width='90%' align=center border=2>";
 echo "<tr><td width='40%' align='center' bgcolor='ffff00'>ID</td>
@@ -24,7 +24,7 @@ echo "<tr><td width='40%' align='center' bgcolor='ffff00'>ID</td>
 <td width='40%' align='center' bgcolor='ffff00'>PASSWORD</td>
  ";
 
-while($row = mysql_fetch_array($result)){
+while ($row = mysqli_fetch_array($result)) {
     $id = $row['id'];
     $name = $row['name'];
     $email = $row['email'];
@@ -36,7 +36,7 @@ while($row = mysql_fetch_array($result)){
 
 echo "</table>";
 
-mysql_close;
+mysqli_close;
 
 
 include("links.php");

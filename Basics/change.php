@@ -16,14 +16,14 @@ $newname = $_REQUEST['newname'];
 $newemail = $_REQUEST['newemail'];
 $newpassword = $_REQUEST['newpassword'];
 
-mysql_connect($server, $db_user, $db_pass) or die("Could not connect to server!");
-mysql_select_db($db_name) or die ("Could not connect to database!");
+mysqli_connect($server, $db_user, $db_pass) or die("Could not connect to server!");
+mysqli_select_db($db_name) or die("Could not connect to database!");
 
-mysql_query("UPDATE users SET name='$newname', email= '$newemail', password='$newpassword'
+mysqli_query("UPDATE users SET name='$newname', email= '$newemail', password='$newpassword'
 WHERE id='$id'");
 
 echo "Success!";
 
-mysql_close();
+mysqli_close();
 
 include('links.php');

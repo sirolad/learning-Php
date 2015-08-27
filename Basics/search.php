@@ -38,14 +38,14 @@ if (isset($_REQUEST['submit'])) {
             $query.= "OR name LIKE '%$each%'";
         }
     }
-    mysql_connect($server, $db_user, $db_pass) or die("Could not connect to server!");
-    mysql_select_db($db_name) or die("Could not connect to database!");
-    $query = mysql_query($query);
-    $num = mysql_num_rows($query);
+    mysqli_connect($server, $db_user, $db_pass) or die("Could not connect to server!");
+    mysqli_select_db($db_name) or die("Could not connect to database!");
+    $query = mysqli_query($query);
+    $num = mysqli_num_rows($query);
 
     if ($num > 0 && $search != "") {
         echo "$num result(s) found for <b>$search</b> !";
-        while ($row = mysql_fetch_assoc($query)) {
+        while ($row = mysqli_fetch_assoc($query)) {
             $id = $row['id'];
             $name = $row['name'];
             $email = $row['email'];
@@ -56,7 +56,7 @@ if (isset($_REQUEST['submit'])) {
     } else {
         echo "No results found!";
     }
-    mysql_close();
+    mysqli_close();
 } else {
     echo "Please type any word!";
 }
